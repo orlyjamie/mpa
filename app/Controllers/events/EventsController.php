@@ -48,6 +48,8 @@ class EventsController
 
     public function add(Request $request, Response $response)
     {
+        $_SESSION['min_participants'] = (int)$request->getParam('min_participants');
+
         $validation = $this->validator->validate($request, EventForm::rules());
 
         if ($validation->fails()) {
